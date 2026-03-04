@@ -41,7 +41,10 @@ let canciones = [
 
 const comenzar = document.getElementById("comenzar");
 
-let probJackpot  = 1;
+
+const textoJackpot = document.getElementById("texto-jackpot");
+
+let probJackpot  = 0;
 const MAX = 100;
 let audio = new Audio();
 
@@ -91,20 +94,37 @@ function reproducirNormal() {
   reproducir(c.c);
 }
 
+
+function actualizarTexto() {
+	textoJackpot.innerText = `Jackpot ${probJackpot}/100`;
+}
+
+
 function reproducirSiguiente() {
   const tirada = Math.random() * MAX;
   if (tirada < probJackpot) {
     manejarJackpot();
-    probJackpot = 1;
+    probJackpot = 0;
   } else {
     reproducirNormal();
     probJackpot = Math.min(probJackpot + 1, MAX);
   }
+  actualizarTexto();
 }
 
+
+
+
+
+
+//Eventos
 comenzar.addEventListener("click", () => {
   reproducirSiguiente();
 });
 
-//Eventos
+audio.addEventListener("ended", () => {
+	reproducirSiguiente();
+});
+
+
 

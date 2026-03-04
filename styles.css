@@ -1,98 +1,145 @@
 
-body{
-    height: 100vh;
-    width: 100wh;
+/* 1. RESET FUNDAMENTAL: Evita que bordes/paddings sumen ancho extra */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh; /* min-height es mejor que height */
+    width: 100%;
     background: radial-gradient(#d94, #f92, #a73);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    font-family: sans-serif; /* Mejora la legibilidad */
+    padding: 20px;
 }
-h1{
-    cursor: default;
+
+h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    text-align: center;
+    margin-bottom: 20px;
     user-select: none;
 }
 
-
-
-
-.libre{
+/* 2. CONTENEDOR UNIFICADO: Para que el botón y la lista midan lo mismo */
+main {
+    width: clamp(300px, 85vw, 700px); /* Ancho máximo de 700px en PC */
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-}
-
-/**Boton Subir Audio**/
-
-.custom input[type="file"]{
-    display: none;
-}
-.custom span{
-    padding: 5px;
-    color: #ddd;
-    border-radius: 5px;
-    background: radial-gradient(#666, #000);
-    cursor: pointer;
-    user-select: none;
-}
-
-/**listas**/
-li{
-    user-select: none;
-}
-.listas{
-    margin: 0;
-    width: 50vw;
-    height: auto;
-    border: 2px solid black;
-    display: flex;
     align-items: center;
-    justify-content: center;
-   
-}
-.B{
-    border: 2px solid black;
-    background: radial-gradient(#fff,#999);
-    overflow-y: auto;
-    width: 268px;
-    max-height: 140px;
-    margin: 0;
-    font-size: 20px;
-    padding: 30px, 0, 0, 0;
-}
-.A{
-    margin:0;
-    font-size: 30px;
 }
 
-/**Botones**/
+section, article {
+    width: 100%; /* Ocupan todo el ancho del "main" */
+}
 
-
-.boton-c{
+/** Botones **/
+.boton-c {
     cursor: pointer;
-    width: 100px;
-    height: 40px;
-    margin-top: 20px;
-    height: 40px;
+    width: 100%; /* Se adapta al contenedor main */
+    height: clamp(60px, 10vh, 90px);
+    margin-bottom: 20px;
     color: white;
-    border: black 1px solid;
-    background-color: green;
+    border: 2px solid black;
+    background-color: #008000;
+    font-size: clamp(20px, 5vw, 35px);
+    border-radius: 8px; /* Un toque más moderno */
+    transition: transform 0.1s;
 }
 
-.boton-a{
-    cursor: pointer;
-    width: 100px;
-    height: 40px;
-    margin-top: 20px;
-    height: 40px;
+.boton-c:active {
+    transform: scale(0.98); /* Efecto de click */
+}
+
+/** El cuadro de la lista **/
+.lista {
+    border: 2px solid black;
+    background: radial-gradient(#fff, #ccc);
+    width: 100%; /* Se adapta al contenedor main */
+    height: auto; /* Que el contenido defina el alto o usa min-height */
+    min-height: 40vh;
+    padding: clamp(20px, 5vw, 40px);
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.A {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #999;
+}
+
+ul {
+    list-style: none; /* Quitamos los puntos para controlar mejor el espacio */
+}
+
+li {
+    font-size: clamp(18px, 4vw, 28px);
+    margin-bottom: 10px;
+    user-select: none;
 }
 
 
 
-/**Rarezas**/
 
-.rarezaTexto{
-    font-size: 24px;
-    margin-left: 40px;
+/**Animacion**/
+
+
+@keyframes rainbow{
+0% {color: #f00;}
+15% {color: #ff0;}
+26% {color: #0f0;}
+46% {color: #0ff;}
+66% {color: #00f;}
+86% {color: #f0f;}
+100% {color: #f00;}
 }
+
+@keyframes border{
+0% {text-shadow: 1px 1px 2px #000, 1px 1px 2px #000;}
+15% {text-shadow: 1px 1px 2px #555, 1px 1px 2px #555;}
+26% {text-shadow: 1px 1px 2px #777, 1px 1px 2px #777;}
+46% {text-shadow: 1px 1px 2px #333, 1px 1px 2px #333;}
+66% {text-shadow: 1px 1px 2px #888, 1px 1px 2px #888;}
+86% {text-shadow: 1px 1px 2px #222, 1px 1px 2px #222;}
+100% {text-shadow: 1px 1px 2px #000, 1px 1px 2px #000;}
+}
+
+/** Rarezas: Colores específicos **/
+ul li:nth-child(2) { 
+    -webkit-text-stroke: 1px black;
+    color: #b8860b; 
+    font-weight: bold; 
+    animation: border 3s infinite linear;
+} 
+ul li:nth-child(1) { 
+    -webkit-text-stroke: 1px black;
+    color: #fff; 
+    font-weight: bold; 
+    animation: border 3s infinite linear;
+}
+ul li:nth-child(3) { 
+    -webkit-text-stroke: 1px black;
+     font-weight: bold;
+    animation: rainbow 3s infinite linear;
+} 
+ul li:nth-child(4) { 
+    color: #a335ee; 
+    font-weight: bold;
+    -webkit-text-stroke: 1px #8113cc;
+} 
+ul li:nth-child(5) { 
+    color: #0070dd; 
+    font-weight: bold;
+    -webkit-text-stroke: 1px #0050aa;
+}
+ul li:nth-child(6) { 
+    color: #555; 
+    font-weight: bold;
+    -webkit-text-stroke: 1px #333;
+}    
