@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(1.8rem, 7vw, 3rem);
     text-align: center;
     margin-bottom: 20px;
     user-select: none;
@@ -27,7 +27,8 @@ h1 {
 
 /* 2. CONTENEDOR UNIFICADO: Para que el botón y la lista midan lo mismo */
 main {
-    width: clamp(300px, 85vw, 700px); /* Ancho máximo de 700px en PC */
+    width: 100%; 
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;

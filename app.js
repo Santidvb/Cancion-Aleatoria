@@ -68,7 +68,7 @@ function elegirPorPunto(lista) {
 
 function manejarJackpot() {
 	const jackpots = canciones.filter(x => x.jackpot);
-	const j = jackpots[Math.floor(Math.andom() * jackpots.length)];
+	const j = jackpots[Math.floor(Math.random() * jackpots.length)];
 	reproducir(j.c);
 	
 	const raras = canciones.filter(x => !x.jackpot && x.n < 1 && !x.seguro);
