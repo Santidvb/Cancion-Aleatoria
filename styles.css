@@ -1,0 +1,98 @@
+
+body{
+    height: 100vh;
+    width: 100wh;
+    background: radial-gradient(#d94, #f92, #a73);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+h1{
+    cursor: default;
+    user-select: none;
+}
+
+
+
+
+.libre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/**Boton Subir Audio**/
+
+.custom input[type="file"]{
+    display: none;
+}
+.custom span{
+    padding: 5px;
+    color: #ddd;
+    border-radius: 5px;
+    background: radial-gradient(#666, #000);
+    cursor: pointer;
+    user-select: none;
+}
+
+/**listas**/
+li{
+    user-select: none;
+}
+.listas{
+    margin: 0;
+    width: 50vw;
+    height: auto;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.B{
+    border: 2px solid black;
+    background: radial-gradient(#fff,#999);
+    overflow-y: auto;
+    width: 268px;
+    max-height: 140px;
+    margin: 0;
+    font-size: 20px;
+    padding: 30px, 0, 0, 0;
+}
+.A{
+    margin:0;
+    font-size: 30px;
+}
+
+/**Botones**/
+
+
+.boton-c{
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    height: 40px;
+    color: white;
+    border: black 1px solid;
+    background-color: green;
+}
+
+.boton-a{
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    height: 40px;
+}
+
+
+
+/**Rarezas**/
+
+.rarezaTexto{
+    font-size: 24px;
+    margin-left: 40px;
+}
